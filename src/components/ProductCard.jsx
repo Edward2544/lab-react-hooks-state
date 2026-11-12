@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/ProductCard.module.css'
 
-const ProductCard = ({ product, addToCart }) => {
+const ProductCard = ({ product, onAddToCart }) => {
   return (
     <div
       className={`${styles.card} ${!product.inStock ? styles.outOfStock : ''}`}
@@ -13,7 +13,7 @@ const ProductCard = ({ product, addToCart }) => {
       <button
         type="button"
         data-testid={'product-' + product.id}
-        onClick={() => addToCart && addToCart(product)}
+        onClick={() => onAddToCart?.(product)}
       >
         Add to Cart
       </button>

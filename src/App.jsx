@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ProductList, { sampleProducts } from './components/ProductList'
 import DarkModeToggle from './components/DarkModeToggle'
 import Cart from './components/Cart'
+import styles from './styles/DarkMode.module.css'
 import './App.css'
 
 const App = () => {
@@ -19,7 +20,7 @@ const App = () => {
       : sampleProducts.filter((product) => product.category === selectedCategory)
 
   return (
-    <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`${styles[darkMode ? 'darkMode' : 'lightMode']} App`}>
       <h1>🛒 Shopping App</h1>
       <p>
         Welcome to the Shopping App! Browse our products and add them to your cart. Use the filter to view products by category.
@@ -27,15 +28,19 @@ const App = () => {
 
       <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
 
-      <label>Filter by Category: </label>
-      <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+      <label htmlFor="category-filter">Filter by Category: </label>
+      <select
+        id="category-filter"
+        value={selectedCategory}
+        onChange={(event) => setSelectedCategory(event.target.value)}
+      >
         <option value="all">All</option>
         <option value="Fruits">Fruits</option>
         <option value="Dairy">Dairy</option>
       </select>
 
-      <ProductList products={filteredProducts} addToCart={addToCart} />
-      <Cart cart={cart} />
+      <ProductList products={filteredProducts} onAddToCart={addToCart} />
+      <Cart shoppingCart={cart} />
     </div>
   )
 }

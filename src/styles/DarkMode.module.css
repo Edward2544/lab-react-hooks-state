@@ -1,3 +1,17 @@
-/* TODO (optional): Define styles for dark mode */
+.lightMode,
+.darkMode {
+  min-height: 100vh;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
 
-/* TODO (optional): Ensure text and background colors adjust for dark mode */
+.lightMode {
+  color: #213547;
+  background-color: #fff;
+}
+
+.darkMode {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}

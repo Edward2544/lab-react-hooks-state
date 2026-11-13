@@ -1,5 +1,7 @@
 # Lab: Building a Dynamic Shopping App with React Hooks
 
+[View the live app](https://edward2544.github.io/lab-react-hooks-state/)
+
 ## Introduction
 
 Your company is developing a **new grocery shopping app** to improve the shopping experience for customers. You have been assigned to implement **three key features**:
